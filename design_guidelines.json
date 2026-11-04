@@ -1,0 +1,222 @@
+
+{
+  "app_name": "SarkariPYQ Hub - Official Competitive Exam PDF Library",
+  "app_type": "hybrid_fullstack",
+  "context": "A complete exam preparation portal for Indian government competitive examinations including UPSC, BPSC, UPPSC, MPPSC, RAS, Banking, Railways, Defence and Police. The platform provides structured category and exam browsing, year-wise previous year question papers, official PDF viewing and downloading, bookmarking, advanced search and a secure Admin Management System.",
+  "archetype": "Swiss & High-Contrast (Authority, Clarity, Truth) combined with Organization",
+  "typography": {
+    "heading_font": "Plus Jakarta Sans, sans-serif",
+    "body_font": "Inter, sans-serif",
+    "mono_font": "JetBrains Mono, monospace"
+  },
+  "colors": {
+    "primary": "#1E3A8A",
+    "primary_hover": "#1E40AF",
+    "accent": "#EA580C",
+    "background_light": "#F8FAFC",
+    "background_dark": "#0F172A",
+    "card_light": "#FFFFFF",
+    "card_dark": "#1E293B",
+    "text_dark": "#0F172A",
+    "text_light": "#F8FAFC",
+    "muted": "#64748B",
+    "border": "#E2E8F0",
+    "sarkari_red": "#DC2626",
+    "sarkari_green": "#16A34A"
+  },
+  "visual_enhancers": {
+    "shadows": "shadow-sm hover:shadow-md transition-shadow duration-200",
+    "radius": "rounded-lg",
+    "glassmorphism": "backdrop-blur-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800"
+  },
+  "categories_default": [
+    {
+      "id": "upsc",
+      "name": "UPSC & Civil Services",
+      "name_hi": "यूपीएससी और सिविल सेवा",
+      "exams": [
+        "UPSC Civil Services (IAS)",
+        "NDA",
+        "CDS",
+        "UPSC EPFO",
+        "CAPF"
+      ]
+    },
+    {
+      "id": "state_pcs",
+      "name": "State PCS",
+      "name_hi": "राज्य पीसीएस",
+      "exams": [
+        "UPPSC PCS",
+        "BPSC CCE",
+        "MPPSC State Service",
+        "RAS",
+        "WBPSC",
+        "JPSC"
+      ]
+    },
+    {
+      "id": "banking",
+      "name": "Banking & Insurance",
+      "name_hi": "बैंकिंग और बीमा",
+      "exams": [
+        "IBPS PO",
+        "IBPS Clerk",
+        "SBI PO",
+        "SBI Clerk",
+        "RBI Grade B",
+        "LIC AAO"
+      ]
+    },
+    {
+      "id": "railways",
+      "name": "Railways (RRB)",
+      "name_hi": "रेलवे (आरआरबी)",
+      "exams": [
+        "RRB NTPC",
+        "RRB Group D",
+        "RRB ALP",
+        "RRB JE"
+      ]
+    },
+    {
+      "id": "defence",
+      "name": "Defence & Police",
+      "name_hi": "रक्षा और पुलिस",
+      "exams": [
+        "NDA",
+        "CDS",
+        "AFCAT",
+        "Delhi Police Constable",
+        "UP Police SI"
+      ]
+    }
+  ],
+  "subjects": [
+    "General Studies",
+    "General Knowledge",
+    "Reasoning",
+    "Quantitative Aptitude",
+    "English",
+    "Hindi",
+    "History",
+    "Geography",
+    "Polity",
+    "Economics",
+    "Science",
+    "Technical"
+  ],
+  "languages": [
+    "English",
+    "Hindi",
+    "Bilingual"
+  ],
+  "key_features": [
+    "Complete bilingual support with English and Hindi language switcher",
+    "Responsive homepage with organized category and exam sections",
+    "Category-wise and exam-wise previous year question paper browsing",
+    "Year-wise PYQ paper listing",
+    "Official PDF links with in-browser preview and download options",
+    "Advanced search by exam name, category, year, subject and language",
+    "Bookmarks and saved papers with browser local storage persistence",
+    "Admin authentication with secure password hashing and JWT-based sessions",
+    "Admin dashboard for managing categories, exams and question papers",
+    "Add, edit and delete categories",
+    "Add, edit and delete examinations",
+    "Upload or add PDF URLs for previous year papers",
+    "Paper details including exam name, year, subject, language and paper title",
+    "Form validation and meaningful error messages",
+    "Loading indicators and empty states",
+    "Mobile, tablet and desktop responsive layout"
+  ],
+  "database": {
+    "type": "MongoDB",
+    "collections": [
+      "admins",
+      "categories",
+      "exams",
+      "papers"
+    ],
+    "paper_fields": [
+      "id",
+      "category_id",
+      "exam_id",
+      "title",
+      "year",
+      "subject",
+      "language",
+      "pdf_url",
+      "description",
+      "created_at",
+      "updated_at"
+    ],
+    "category_fields": [
+      "id",
+      "name",
+      "name_hi",
+      "created_at"
+    ],
+    "exam_fields": [
+      "id",
+      "category_id",
+      "name",
+      "name_hi",
+      "created_at"
+    ]
+  },
+  "api_requirements": {
+    "backend": "FastAPI",
+    "frontend": "React",
+    "database": "MongoDB",
+    "api_prefix": "/api",
+    "requirements": [
+      "GET /api/categories",
+      "POST /api/categories",
+      "PUT /api/categories/{id}",
+      "DELETE /api/categories/{id}",
+      "GET /api/exams",
+      "POST /api/exams",
+      "PUT /api/exams/{id}",
+      "DELETE /api/exams/{id}",
+      "GET /api/papers",
+      "POST /api/papers",
+      "PUT /api/papers/{id}",
+      "DELETE /api/papers/{id}",
+      "POST /api/auth/login",
+      "GET /api/auth/me"
+    ]
+  },
+  "security": [
+    "Hash admin passwords securely",
+    "Use JWT authentication for admin routes",
+    "Protect all admin write operations",
+    "Validate all user inputs",
+    "Configure CORS for authorized frontend origins",
+    "Never expose database credentials or secret keys in frontend code"
+  ],
+  "image_urls": {
+    "library_hero": "https://images.unsplash.com/photo-1682203533806-8b5457c84c91?auto=format&fit=crop&w=1600&q=85",
+    "study_books": "https://images.unsplash.com/photo-1682203533347-10b924b3c253?auto=format&fit=crop&w=1200&q=85"
+  },
+  "deployment_requirements": {
+    "frontend": "Vercel compatible",
+    "backend": "Render compatible",
+    "source_control": "GitHub",
+    "environment_variables": [
+      "MONGO_URL",
+      "DB_NAME",
+      "JWT_SECRET",
+      "ADMIN_EMAIL",
+      "ADMIN_PASSWORD",
+      "CORS_ORIGINS",
+      "REACT_APP_BACKEND_URL"
+    ],
+    "requirements": [
+      "No dependency on Emergent-specific packages or services",
+      "Frontend and backend must communicate through configurable API URLs",
+      "All API endpoints must work after deployment",
+      "Production build must complete without errors"
+    ]
+  },
+  "instructions_to_main_agent": "Build a complete, production-ready full-stack application named SarkariPYQ Hub using React, FastAPI and MongoDB. Follow this design specification carefully. Implement a professional, organized and responsive exam preparation portal with English and Hindi support, category-wise exam browsing, year-wise PYQ papers, PDF preview and download, advanced search, bookmarks and a fully functional secure admin dashboard. Ensure all frontend components are connected to working backend APIs and MongoDB collections. Implement proper loading states, validation, error handling and empty states. Use environment variables for API configuration and secrets. Do not use Emergent-specific dependencies or services. Test frontend builds, API endpoints, authentication, database operations and all major user flows before considering the project complete. Do not use fake success messages or non-functional buttons."
+}
